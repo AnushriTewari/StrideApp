@@ -17,7 +17,7 @@ export default class Intro2 extends Component {
             <View style={{ flex: 0.8 , flexDirection: 'column'}}>
                 <View style={{ flex: 0.9 }}>
                   <View style={{flex: 0.6 , alignItems:'center',justifyContent:'flex-end',paddingBottom:"5%"}}>
-                      <Image source={ require('../../Image/leaderboard@1,5x.png')}  style={{ width: w * 0.3,height: w *0.3 }}></Image>
+                      <Image source={ require('../../../Image/leaderboard@1,5x.png')}  style={{ width: w * 0.3,height: w *0.3 }}></Image>
                   </View>
                   <View style={{ flex: 0.4 , alignItems:'center',justifyContent:'flex-start'}}>
                     <Text style={{ color: '#426387', fontSize: w * 0.05, fontWeight: "400"}}>See who is at the top</Text>
@@ -27,7 +27,7 @@ export default class Intro2 extends Component {
                 </View>
                 <View style={{ flex: 0.1 }}>
                   <TouchableOpacity>
-                   <Text onPress={()=>Actions.dashboard()} style={{ textAlign:'center',fontSize: w * 0.045, color: "#d38b3f" }}>Skip Intro</Text>
+                   <Text onPress={()=>Actions.dashboardTC()} style={{ textAlign:'center',fontSize: w * 0.045, color: "#d38b3f" }}>Skip Intro</Text>
                   </TouchableOpacity>
                 </View>
             </View>

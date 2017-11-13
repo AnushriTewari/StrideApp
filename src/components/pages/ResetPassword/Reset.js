@@ -32,15 +32,15 @@ export default class Reset extends Component {
     render() {
 
         return (
-            <KeyboardAwareScrollView contentContainerStyle={{ height: h * 0.97}}>
-                <View style={{ height: h * 0.97 , backgroundColor: 'white' }}>
+            <KeyboardAwareScrollView contentContainerStyle={{ height: h * 0.96}}>
+                <View style={{ height: h * 0.96 , backgroundColor: 'white' }}>
                 <View style={{ flex: 0.1, justifyContent: 'center',marginLeft:'5%' }}>
-                  <Image source={require("../../Image/logo.png")}></Image>
+                  <Image source={require("../../../Image/logo.png")}></Image>
                  </View>
                     <View style={{ flex: .77}}>
                         <Image
                             style={{ height: h * 0.77, width: w * 1, alignItems: 'center' }}
-                            source={require('../../Image/bg.png')} >
+                            source={require('../../../Image/bg.png')} >
                             <View style={{ height: h * 0.2, width: w * 1, justifyContent: 'center', alignItems: 'center' }}>
                                 <Text style={{ color: 'white', fontSize: h * 0.03, backgroundColor: 'transparent', textAlign: 'center' }}>RESET.YOUR.PASSWORD</Text>
                             </View>

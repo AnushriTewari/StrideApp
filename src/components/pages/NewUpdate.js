@@ -19,13 +19,13 @@ export default class Update extends Component {
         };
     }
 
-    onSelect(index, value) {
-        console.log("dropdown", index, value);
-    }
+    // onSelect(index, value) {
+    //     console.log("dropdown", index, value);
+    // }
 
     onDropdown() {
         if(this.state.index==0){
-            return(alert("please select"));
+            // return(alert("please select"));
         }
     }
     render() {
@@ -34,7 +34,7 @@ export default class Update extends Component {
             return (<View style={{ flex: 1, marginTop: '30%', alignItems: 'center' }}>
                 <View style={{ flex: .3, width: w * .8, justifyContent: 'space-around', alignItems: 'center', shadowOffset: { width: 2, height: 2, }, shadowColor: 'grey', shadowOpacity: 1.0, }}>
                     <Text style={{ fontSize: h * .025, color: 'steelblue', alignSelf: 'center' }}>Your Update has been Posted</Text>
-                    <TouchableOpacity onPress={() => alert('under Dovelopment')}
+                    <TouchableOpacity 
                         style={{ height: h * 0.075, width: w * 0.59, backgroundColor: '#EF964D', justifyContent: 'center', alignItems: 'center' }}>
                         <Text style={{ color: 'white', fontSize: h * 0.03, fontWeight: 'bold' }}>View notification</Text>
                     </TouchableOpacity>
@@ -66,7 +66,7 @@ export default class Update extends Component {
                         defaultValue='Select Receipients '
                         dropdownStyle={{ width: w * 1, backgroundColor: 'white', width: w * .69 }}
                         dropdownTextStyle={{ color: '#EF964D', fontSize: h * .02 }}
-                        onSelect={(index, value) => this.onSelect(index, value)}
+                        //onSelect={(index, value) => this.onSelect(index, value)}
                     />
                     </View>
                    

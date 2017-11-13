@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import {
-    Text,
-    View,
-    TouchableOpacity, FlatList, Image, TextInput, Alert, StatusBar
-} from 'react-native';
+import { Text, View, Image, Dimensions, TouchableOpacity, TextInput, FlatList } from "react-native";
 
-export default class MyAccount extends Component {
+export default class Donation extends Component {
     constructor(props) {
         super(props);
-
     }
-   
+    
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
