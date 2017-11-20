@@ -1,47 +1,47 @@
 import React, { Component, PropTypes } from 'react'
-import {Text, View, Image, TouchableOpacity, ScrollView, StyleSheet, Dimensions} from 'react-native'
+import { Text, View, Image, TouchableOpacity, ScrollView,  Dimensions } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { Actions } from 'react-native-router-flux';
-const { height: h, width: w } = Dimensions.get('window');
-
+import styles from '../.././styles/Drawerstyles'
 
 export default class Drawer extends Component {
 
-	render() {
-		return (
-      <KeyboardAwareScrollView contentContainerStyle={{ height: h}}>
-			<View style={{ height: h, backgroundColor:'white', alignItems:'center' }}>
-
-        <View style={{ flex: 0.1  }}></View>
-        <View style={{ flex: 0.9, width : w * 0.7, backgroundColor:'white'}}>
-        <View style={{ flex: 0.07, justifyContent:'center'}}>
-			   <Text onPress={()=>Actions.donation()} style={{ color:"#2f6884", fontSize: w * 0.055, fontWeight:'500' }}>Donations</Text>
-		  	</View>
-        <View  style={{ flex: 0.07, justifyContent:'center' }}>
-			   <Text onPress={()=>Actions.leaderboard()} style={{ color: "#2f6884", fontSize: w * 0.055, fontWeight:'500' }}>Leaderboard</Text>
-		  	</View>
-        <View  style={{ flex: 0.07, justifyContent:'center' }}>
-			   <Text onPress={()=>Actions.team()} style={{ color: "#2f6884", fontSize: w * 0.055, fontWeight:'500' }}>Team</Text>
-		  	</View>
-        <View  style={{ flex: 0.07, justifyContent:'center' }}>
-			   <Text onPress={()=>Actions.notification()} style={{color:"#2f6884", fontSize:w * 0.055, fontWeight:'500'}}>Notifications</Text>
-		  	</View>
-        <View  style={{ flex: 0.07, justifyContent:'center' }}>
-			   <Text onPress={()=>Actions.myacc
-           ()} style={{ color: "#2f6884", fontSize: w * 0.055, fontWeight: '500' }}>My Account</Text>
-		  	</View>
-        <View style={{ flex: 0.1 }}></View>
-        <View style={{ flex: 0.22 , justifyContent:'center' }}>
-          <TouchableOpacity onPress={()=>Actions.login()} style={{ borderColor: '#db9a55', borderWidth: 1.5, marginHorizontal: "10%" }}>
-            <Text style={{ color: '#2f6884', fontSize: w * 0.055, fontWeight: '400', textAlign: 'center', paddingVertical: '3%' }}>Logout</Text>
-          </TouchableOpacity>
+  render() {
+    return (
+      <KeyboardAwareScrollView contentContainerStyle={styles.mainView}>
+        <View style={styles.mainView}>
+          <View style={styles.main}></View>
+          <View style={styles.container}>
+          <View style={styles.wrap}>
+              <Text onPress={() => Actions.dashboardTC()} style={styles.textstyle}>Dashboard</Text>
+            </View>
+            <View style={styles.wrap}>
+              <Text onPress={() => Actions.donation()} style={styles.textstyle}>Donations</Text>
+            </View>
+            <View style={styles.wrap}>
+              <Text onPress={() => Actions.leaderboard()} style={styles.textstyle}>Leaderboard</Text>
+            </View>
+            <View style={styles.wrap}>
+              <Text onPress={() => Actions.team()} style={styles.textstyle}>Team</Text>
+            </View>
+            <View style={styles.wrap}>
+              <Text onPress={() => Actions.notification()} style={styles.textstyle}>Notifications</Text>
+            </View>
+            <View style={styles.wrap}>
+              <Text onPress={() => Actions.myacc()} style={styles.textstyle}>My Account</Text>
+            </View>
+            <View style={styles.logoutButtonView}>
+              <TouchableOpacity onPress={() => Actions.login()} style={styles.logoutText}>
+                <Text style={styles.logoutButton}>Logout</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.buttonview}>
+             <Image source={require('../../../Image/dsaco.png')} style={{}}/>
+             <Text style={styles.text}>Special Thanks to Our Partner</Text>
+            </View>
+          </View>
         </View>
-        <View style={{ flex: 0.1 }}>
-
-        </View>
-        </View>
-      </View>
       </KeyboardAwareScrollView>
-		)
-	}
+    )
+  }
 }

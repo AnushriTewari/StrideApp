@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, Image, Dimensions, TouchableOpacity, TextInput, StyleSheet } from "react-native";
+import { Text, View, Image, Dimensions, TouchableOpacity, TextInput, StyleSheet, Platform } from "react-native";
 import FloatingLabel from 'react-native-floating-labels';
 import { Actions } from 'react-native-router-flux';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { ifIphoneX, isIphoneX } from 'react-native-iphone-x-helper'
 const { height: h, width: w } = Dimensions.get('window');
+import styles from '../.././styles/loginstyles' 
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +22,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <KeyboardAwareScrollView contentContainerStyle={styles.maincontainer}>
+      <View style={styles.maincontainer}>
         <View style={styles.maincontainer}>
           <View style={styles.container}>
             <Image source={require("../../../Image/logo.png")}></Image>
@@ -27,13 +30,7 @@ export default class Login extends Component {
           <View style={styles.secview}>
             <Image source={require('../../../Image/bg@4x.png')} style={styles.bgImage}>
               <View style={styles.thistextView}>
-                <View style={styles.textview}>
-                  <Text style={styles.mainText}>ON THE GO</Text>
-                  <Text style={styles.mainText}>Fundraising</Text>
-                </View>
-                <View style={styles.sectxt}>
-                  <Text style={styles.sectext}>READY.SET.WALK.</Text>
-                </View>
+                <Image source={require("../../../Image/onthego.png")} style={{}} ></Image>
               </View>
               <View style={styles.nextview}>
                 <View style={styles.userview}>
@@ -46,7 +43,7 @@ export default class Login extends Component {
                       inputStyle={styles.input}
                       underlineColorAndroid={'transparent'}
                       autoCorrect={false}
-                      onChangeText={(email) => this.setState({ email: email, disable: false, blur: 1, logButtonColor: "#d38b3f", blur: 1})}
+                      onChangeText={(email) => this.setState({ email: email, disable: false, blur: 1, logButtonColor: "#f89e59", blur: 1 })}
                       style={styles.main}
                       value={this.state.email}>Username or Email</FloatingLabel>
                   </View>
@@ -62,17 +59,17 @@ export default class Login extends Component {
                       inputStyle={styles.input}
                       underlineColorAndroid={'transparent'}
                       autoCorrect={false}
-                      onChangeText={(text) => {this.setState({ password: text }) }}
+                      onChangeText={(text) => { this.setState({ password: text }) }}
                       style={styles.main}
                       value={this.state.password}>Password</FloatingLabel>
                   </View>
                 </View>
               </View>
-              <View style={[styles.loginview,{opacity: this.state.blur}]}>
+              <View style={[styles.loginview, { opacity: this.state.blur }]}>
                 <TouchableOpacity
                   disabled={this.state.disable}
-                  onPress={() => Actions.intro1()} style={styles.login}>
-                  <Text style={[styles.logintext,{color: this.state.logButtonColor}]}>LOGIN</Text>
+                  onPress={() => Actions.intro()} style={styles.login}>
+                  <Text style={[styles.logintext, { color: this.state.logButtonColor }]}>LOGIN</Text>
                 </TouchableOpacity>
               </View>
               <View style={styles.signup}>
@@ -88,137 +85,7 @@ export default class Login extends Component {
             </TouchableOpacity>
           </View>
         </View>
-      </KeyboardAwareScrollView>
+      </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-   maincontainer: {
-    height: h * 0.97,
-    backgroundColor: 'white'
-  },
-   container: {
-     flex: 0.1,
-     justifyContent: 'center',
-     marginLeft: '5%'
-  },
-   bgImage:{
-     width: w,   
-     height: h * 0.8
-  },
-   thistextView:{
-    height: h * 0.3,
-     backgroundColor: 'transparent' 
-  },
-   textview:{
-     flex: 0.7,
-     justifyContent: 'center',
-     alignItems: 'center' 
-  },
-   mainText:{
-     color: 'white',
-     fontSize: 40,
-     fontStyle: 'italic'
-  },
-    sectxt:{
-      flex: 0.2,
-      paddingBottom: '2%'
-  },
-   sectext:{
-     textAlign: 'center', 
-     color: 'white',
-     fontSize: w * 0.055, 
-     fontWeight: "400" 
-  },
-  secview:{
-    flex: 0.8 
-  },
-  nextview:{
-    height: h * 0.25,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
-    marginHorizontal: 35,
-    justifyContent: 'center',
-    alignItems: 'center' 
-},
-  userview:{
-    flex: 0.5,
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: 'white',
-    marginHorizontal: '3%' 
-},
-  userview2:{
-     flex: 0.1,
-     marginLeft: "4%",
-     justifyContent: 'center',
-     alignItems: "flex-end" 
-},
-  username:{
-     flex: 0.9,
-     justifyContent: 'center', 
-     marginRight: "4%"
-},
-   password:{
-     flex: 0.5,
-     flexDirection: 'row',
-     borderBottomWidth: 1,
-     borderBottomColor: 'white',
-     marginBottom: '5%',
-     marginHorizontal: '3%' 
-},
-   password2:{
-      flex: 0.7,
-      justifyContent: 'center',
-      marginRight: "4%"
-},
-   loginview:{
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: "transparent"
-   },
-   login:{
-      height: h * 0.07,
-      width: w * 0.55,
-      backgroundColor: '#f5f5f5',
-      borderRadius: 30,
-      justifyContent: 'center',
-      marginTop: "4%"
-   },
-    logintext:{
-      textAlign: 'center',
-      fontSize: w * 0.045,
-      backgroundColor: 'transparent' 
-   },
-    input:{
-      borderWidth: 0,
-      color: 'white',
-      fontSize: w * 0.04 
-   },
-    label:{
-      color: '#BFCACF',
-      fontSize: w * 0.035
-   },
-   
-    signup:{
-      height: h * 0.2,
-      backgroundColor: "transparent",
-      alignItems: 'center',
-      paddingTop: '5%'
-   },
-    signuptext:{
-       color: 'white',
-       fontSize: w * 0.04
-   },
-    forgetpwdView:{
-       flex: 0.1,
-       backgroundColor: 'white',
-       alignItems: 'center',
-       justifyContent: 'center'
-   },
-   frgttext:{
-      color: 'steelblue',
-      fontSize: w * 0.034 
-   }
-
-})

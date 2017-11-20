@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, Image, TouchableOpacity, TextInput, FlatList } from "react-native";
+import styles from '.././styles/progressstyles';
 
 
 export default class Notification extends Component {
@@ -10,8 +11,8 @@ export default class Notification extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ fontSize:20 }}>Under Development</Text>
+            <View style={styles.underdevelopement}>
+                <Text style={styles.text}>Under Development</Text>
             </View>
         );
     }

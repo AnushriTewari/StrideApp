@@ -119,37 +119,37 @@ export default class Directory extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1, backgroundColor: 'white' }}>
-                
-                <View style={{ flex: .08, backgroundColor: '#F09F61', flexDirection: 'row' }}>
-                    <View style={{ flex: .37, justifyContent: 'center', alignItems: 'flex-end' }}>
-                        <Image source={require('../../Image/directory.png')} style={{ height: h * 0.03, width: w * .048 }} />
+            <View style={styles.main}>
+
+                <View style={styles.mainhead}>
+                    <View style={styles.imageiconview}>
+                        <Image source={require('../../Image/directory.png')} style={styles.img} />
                     </View>
-                    <View style={{ flex: .72, justifyContent: 'center', paddingLeft: '4%' }}>
-                        <Text style={{ color: 'white', fontSize: h * 0.03 }}>Directory</Text>
+                    <View style={styles.mainheadview}>
+                        <Text style={styles.mainheadtext}>Directory</Text>
                     </View>
                 </View>
-                <View style={{ flex: .8, width: w , alignSelf: 'center' }}>
-                    <View style={{ flex: .8, justifyContent: 'center', marginTop: '5%' }}>
-                        <View style={{ flex: .05, flexDirection: 'row', justifyContent: 'space-around' }}>
-                            <Text style={{ color: 'black', fontSize: h * 0.02, marginLeft:'3%' }}>Name</Text>
-                            <Text style={{ color: 'black', fontSize: h * 0.02,  marginLeft:'3%'}}>Team</Text>
-                            <Text style={{ color: 'black', fontSize: h * 0.02, marginRight:'4%' }}>Phone</Text>
+                <View style={styles.container}>
+                    <View style={styles.incontain}>
+                        <View style={styles.headview}>
+                            <Text style={styles.heading}>Name</Text>
+                            <Text style={styles.heading}>Team</Text>
+                            <Text style={styles.heading}>Phone</Text>
                         </View>
-                        <View style={{ flex: .8, paddingBottom: '4%'}}>
+                        <View style={styles.list}>
                             <FlatList
                                 data={users}
                                 keyExtractor={this._keyExtractor.bind(this)}
                                 renderItem={({ item, key, index }) =>
-                                    <View style={{ height: h * .04, width: w , flexDirection: 'row', backgroundColor: index % 2 == 0 ? "#F4F3FA" : "white", marginVertical: '1%' }}>
-                                        <View style={{ flex: .34, flexDirection: 'row', alignItems: 'flex-end', justifyContent: "center", marginLeft:"3%" }}>
-                                            <Text style={{ color: 'steelblue', fontSize: h * 0.02, fontWeight: 'bold' }}>{item.Name}</Text>
+                                    <View style={[styles.bottomView, { backgroundColor: index % 2 == 0 ? "#F4F3FA" : "white" }]}>
+                                        <View style={styles.textname}>
+                                            <Text style={styles.textlist}>{item.Name}</Text>
                                         </View>
-                                        <View style={{ flex: .32, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                            <Text style={{ color: 'steelblue', fontSize: h * 0.02, fontWeight: 'bold' }}>{item.Team}</Text>
+                                        <View style={styles.textteam}>
+                                            <Text style={styles.textlist}>{item.Team}</Text>
                                         </View>
-                                        <View style={{ flex: .34, flexDirection: 'row', alignItems: 'center' }}>
-                                            <Text style={{ color: 'steelblue', fontSize: h * 0.02, fontWeight: 'bold' }}>{item.phone}</Text>
+                                        <View style={styles.phone}>
+                                            <Text style={styles.textlist}>{item.phone}</Text>
                                         </View>
                                     </View>
 
@@ -158,9 +158,9 @@ export default class Directory extends Component {
                             />
                         </View>
                     </View>
-                    
+
                 </View>
-                
+
             </View>
 
         )

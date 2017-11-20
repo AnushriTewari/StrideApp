@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import ProgressCircle from 'react-native-progress-circle'
+import styles from '../.././styles/DashboardStyles'
 
-
-
-const w = Dimensions.get('window').width;
-const h = Dimensions.get('window').height;
 
 export default class DashboardEC extends Component {
     constructor(props) {
@@ -28,64 +25,64 @@ export default class DashboardEC extends Component {
     }
     render() {
         return (
-            <View style={{ flex: 1 }}>
-                <View style={{ flex: 0.6 }}>
-                    <View style={{ flex: 0.1, backgroundColor: 'white', justifyContent: 'center' }}>
-                        <Text style={{ color: "#2f658c", fontSize: w * 0.058, fontWeight: '400', textAlign: 'center' }}>{this.state.teamName}</Text>
+            <View style={styles.dashboardmain}>
+                <View style={styles.dashboardcontainer}>
+                    <View style={styles.dashboardview}>
+                        <Text style={styles.eventname}>{this.state.teamName}</Text>
                     </View>
-                    <View style={{ flex: 0.3, backgroundColor: 'white', alignItems: 'center' }}>
+                    <View style={styles.progressView}>
                         <ProgressCircle
                             percent={this.state.percent}
                             radius={70}
                             borderWidth={12}
-                            color="#db9a55"
+                            color="#f89e59"
                             shadowColor="#f5f5f5"
                             bgColor="white"
                         >
-                            <Text style={{ fontSize: w * 0.042, color: '#db9a55', fontWeight: '500' }}>{this.state.percent}%</Text>
-                            <Text style={{ fontSize: w * 0.042, color: '#db9a55', fontWeight: '500' }}>to goal</Text>
+                            <Text style={styles.percent}>{this.state.percent}%</Text>
+                            <Text style={styles.percent}>to goal</Text>
                         </ProgressCircle>
                     </View>
-                    <View style={{ flex: 0.25, justifyContent: 'flex-start', backgroundColor: 'white' }}>
-                        <Text style={{ color: "#db9a55", fontSize: w * 0.036, fontWeight: '400', textAlign: 'center', paddingTop: '4%' }}>goal: {this.state.goal}    |    raised: {this.state.raised}</Text>
-                        <Text style={{ color: "#38383a", fontSize: w * 0.033, fontWeight: '400', textAlign: 'center', paddingTop: '1%' }}>raised by 30 donors</Text>
+                    <View style={styles.nextview}>
+                        <Text style={styles.stats}>Goal: {this.state.goal}    |    Raised: {this.state.raised}</Text>
+                        <Text style={styles.donornum}>Raised by 30 donors</Text>
                     </View>
                 </View>
 
-                <View style={{ flex: 0.4, flexDirection: 'column' }}>
-                    <View style={{ flex: 0.5, flexDirection: 'row' }}>
-                        <TouchableOpacity style={{ flex: 0.5, backgroundColor: '#db9a55' }} onPress={() => Actions.directory()}>
-                            <View style={{ flex: 0.6, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: '5%' }}>
-                                <Image source={require('../../../Image/directory@2x.png')} style={{ width: w * 0.07, height: w * 0.07 }}></Image>
+                <View style={styles.boardcontainer}>
+                    <View style={styles.dashboardlink}>
+                        <TouchableOpacity style={styles.donation} onPress={() => Actions.directory()}>
+                            <View style={styles.icondashboard}>
+                                <Image source={require('../../../Image/directory@2x.png')} style={styles.dashboardimg}></Image>
                             </View>
-                            <View style={{ flex: 0.4, alignItems: 'center' }}>
-                                <Text style={{ color: 'white', textAlign: 'center', fontWeight: '500' }}>{this.state.directory}</Text>
+                            <View style={styles.boardview}>
+                                <Text style={styles.dashboardtext}>{this.state.directory}</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ flex: 0.5, backgroundColor: '#54a9d3' }} onPress={() => Actions.leaderboard()}>
-                            <View style={{ flex: 0.6, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: '5%' }}>
-                                <Image source={require('../../../Image/leaderboard@2x.png')} style={{ width: w * 0.07, height: w * 0.07 }}></Image>
+                        <TouchableOpacity style={styles.leaderboard} onPress={() => Actions.leaderboard()}>
+                            <View style={styles.icondashboard}>
+                                <Image source={require('../../../Image/leaderboard@2x.png')} style={styles.dashboardimg}></Image>
                             </View>
-                            <View style={{ flex: 0.4, alignItems: 'center' }}>
-                                <Text style={{ color: 'white', textAlign: 'center', fontWeight: '500' }}>{this.state.leaderboard}</Text>
+                            <View style={styles.boardview}>
+                                <Text style={styles.dashboardtext}>{this.state.leaderboard}</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
-                    <View style={{ flex: 0.55, flexDirection: 'row' }}>
-                        <TouchableOpacity style={{ flex: 0.5, backgroundColor: '#2f6884' }} onPress={() => Actions.update()}>
-                            <View style={{ flex: 0.6, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: '5%' }}>
-                                <Image source={require('../../../Image/team@2x.png')} style={{ width: w * 0.06, height: w * 0.06 }}></Image>
+                    <View style={styles.dashboardlink}>
+                        <TouchableOpacity style={style.team} onPress={() => Actions.update()}>
+                            <View style={styles.icondashboard}>
+                                <Image source={require('../../../Image/team@2x.png')} style={styles.dashboardimg}></Image>
                             </View>
-                            <View style={{ flex: 0.4, alignItems: 'center' }}>
-                                <Text style={{ color: 'white', textAlign: 'center', fontWeight: '500' }}>{this.state.newUpdate}</Text>
+                            <View style={styles.boardview}>
+                                <Text style={styles.dashboardtext}>{this.state.newUpdate}</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ flex: 0.5, backgroundColor: '#3c84a8' }} onPress={() => Actions.notification()}>
-                            <View style={{ flex: 0.6, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: '5%' }}>
-                                <Image source={require('../../../Image/notification@2x.png')} style={{ width: w * 0.05, height: w * 0.05 }}></Image>
+                        <TouchableOpacity style={styles.notification} onPress={() => Actions.notification()}>
+                            <View style={styles.icondashboard}>
+                                <Image source={require('../../../Image/notification@2x.png')} style={styles.notifiactionimg}></Image>
                             </View>
-                            <View style={{ flex: 0.4, alignItems: 'center', justifyContent: 'flex-start' }}>
-                                <Text style={{ color: 'white', textAlign: 'center', fontWeight: '500' }}>{this.state.notifications}</Text>
+                            <View style={[styles.boardview ,{justifyContent: 'flex-start' }]}>
+                                <Text style={styles.dashboardtext}>{this.state.notifications}</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
