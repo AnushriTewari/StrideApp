@@ -1,5 +1,13 @@
 import { AsyncStorage } from 'react-native';
 import axios from 'axios';
+import Logindata from '.././Data/LoginData';
+import DashboardTeamCaption from '.././Data/DashboardTeamCaptionData';
+import DonationData from '.././Data/DonationData';
+import TeamData from '.././Data/TeamData';
+import LeaderBoardData from '.././Data/LeaderboardData';
+import Notificationdata from '../Data/NotificationData';
+import {Actions} from 'react-native-router-flux';
+
 import {
   LIST,
   LIST_USERS
@@ -13,33 +21,60 @@ let instance = axios.create({
     }
 });
 
-//List User from Server
-export function listUsers (){
-    return (dispatch) => {
-     	dispatch({ type: LIST.LIST_REQUEST });
-     	instance.get(LIST_USERS)
-        .then(function (response) {
-            console.log("DATA--", response);
-            list_user_success(dispatch, response.data);
-        })
-        .catch(function (error) {
-            console.log("ERROR--", error);
-            list_user_fail(dispatch);
-        });
-	};
-};
 
-//list_user_success
-const list_user_success = (dispatch, data) => {
-    dispatch({
-        type: LIST.LIST_REQUEST_SUCCESS,
-        payload: data
-    });
-};
+export const login = (data) => {
+   return (dispatch)=>{
+     dispatch({
+        type: 'LOGIN_SUCCESS',
+        payload: Logindata,
+    })
+    Actions.intro();
+    }
+ }
+ export const dashboardTeamCaptionData = () => {
+    
+   return (dispatch)=>{
+       dispatch({
+        type: 'DASHBOARD_DATA',
+        payload: DashboardTeamCaption, 
+    })
+    }
+ }
 
-//list_user_fail
-const list_user_fail = (dispatch) => {
-    dispatch({
-        type: LIST.LIST_REQUEST_FAIL
-    });
-};
+ export const donationPage = () => {
+    
+   return (dispatch)=>{
+       dispatch({
+        type: 'DONATION_DATA',
+        payload: DonationData, 
+    })
+    }
+ }
+ export const TeamPage = () => {
+    
+   return (dispatch)=>{
+       dispatch({
+        type: 'TEAM_DATA',
+        payload: TeamData, 
+    })
+    }
+ }
+ export const LeaderBoardPage = () => {
+    
+   return (dispatch)=>{
+       dispatch({
+        type: 'LEADERBOARD_DATA',
+        payload: LeaderBoardData, 
+    })
+    }
+ }
+ export const NotificationPage = () => {
+    
+   return (dispatch)=>{
+       dispatch({
+        type: 'NOTIFICATION_DATA',
+        payload: Notificationdata, 
+    })
+    console.log('notifyme....', Notificationdata);
+    }
+ }
