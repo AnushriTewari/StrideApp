@@ -1,4 +1,4 @@
-const DonationData = 
+const donationData = 
 {    
     
     text: '',
@@ -102,10 +102,20 @@ const DonationData =
                 'Amount': '$580',
                 'Date': '4/7/17'
             },
-        ],
-   
-   
+        ],   
    }
-    export default DonationData;
+
+     getDonationData =()=>{
+         return new Promise((resolve, reject)=>{
+            if(donationData){
+                resolve(donationData)
+            }
+            else{
+                reject("error");
+            }
+         })
+     }
+
+    export default getDonationData;
   
   

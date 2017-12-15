@@ -23,7 +23,6 @@ export default class App extends Component {
     }
     render() {
         if (this.state.isLoading) {
-            // Render splash screen while store is bootstrapping
             return null;
         }
         return (

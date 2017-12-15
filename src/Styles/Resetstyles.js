@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, Platform, Dimensions } from 'react-native';
-const { height: h, width: w } = Dimensions.get('window');
+const { height: WINDOW_HEIGHT, width: WINDOW_WIDTH } = Dimensions.get('window');
 import { ifIphoneX, isIphoneX } from 'react-native-iphone-x-helper';
 
 export default StyleSheet.create({
     main: {
-        height: (Platform.OS === 'ios') ? h : h * 0.965,
+        height: (Platform.OS === 'ios') ? WINDOW_HEIGHT : WINDOW_HEIGHT * 0.965,
         backgroundColor: 'white'
     },
     imageView: {
@@ -32,25 +32,25 @@ export default StyleSheet.create({
     },
     backgroundImage: {
         ...ifIphoneX({
-            height: h * 0.8,
+            height: WINDOW_HEIGHT * 0.8,
         }, {
-                height: h * 0.78,
+                height: WINDOW_HEIGHT * 0.78,
             }),
-        width: w * 1,
+        width: WINDOW_WIDTH * 1,
         alignItems: 'center'
     },
     resetView: {
-        height: h * 0.2,
-        width: w * 1,
+        height: WINDOW_HEIGHT * 0.2,
+        width: WINDOW_WIDTH * 1,
         justifyContent: 'center',
         alignItems: 'center'
     },
     resettext: {
         color: 'white',
         ...ifIphoneX({
-            fontSize: h * 0.027,
+            fontSize: WINDOW_HEIGHT * 0.027,
         }, {
-                fontSize: h * 0.03,
+                fontSize: WINDOW_HEIGHT * 0.03,
             }),
         backgroundColor: 'transparent',
         textAlign: 'center'
@@ -62,50 +62,50 @@ export default StyleSheet.create({
     },
     textLast: {
         color: 'steelblue',
-        fontSize: w * 0.034
+        fontSize: WINDOW_WIDTH * 0.034
     },
     textStyle: { 
         color: 'white', 
-        ...ifIphoneX({ fontSize: h * 0.019, }, { fontSize: h * 0.022, }), 
+        ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.019, }, { fontSize: WINDOW_HEIGHT * 0.022, }), 
             backgroundColor: 'transparent' 
         },
     textView: { 
-        height: h * 0.1, 
-        width: w * 0.7, 
+        height: WINDOW_HEIGHT * 0.1, 
+        width: WINDOW_WIDTH * 0.7, 
         justifyContent: 'center',
          alignItems: 'center' 
         },
     mainContainer: { 
-        height: h * 0.3, 
-        width: w * 0.8, 
+        height: WINDOW_HEIGHT * 0.3, 
+        width: WINDOW_WIDTH * 0.8, 
         flexDirection: 'row', 
         backgroundColor: 'rgba(0.9, 0, 0.8, 0.2)', 
         justifyContent: 'center' 
     },
     view: { 
-        height: h * 0.3, 
-        width: w * 0.8 
+        height: WINDOW_HEIGHT * 0.3, 
+        width: WINDOW_WIDTH * 0.8 
     },
     textInputView: { 
-        height: h * 0.07, 
-        width: w * 0.7, 
+        height: WINDOW_HEIGHT * 0.07, 
+        width: WINDOW_WIDTH * 0.7, 
         borderBottomWidth: 1, 
         borderColor: 'white', 
         alignSelf: 'center' 
     },
     textInputStyles: { 
         color: 'orange', 
-        ...ifIphoneX({ height: h * 0.10 }, { height: h * 0.08 }), 
-        width: w * 0.6 
+        ...ifIphoneX({ height: WINDOW_HEIGHT * 0.10 }, { height: WINDOW_HEIGHT * 0.08 }), 
+        width: WINDOW_WIDTH * 0.6 
     },
     ResetPasswordView: { 
-        height: h * 0.12, 
-        width: w * 0.8, 
+        height: WINDOW_HEIGHT * 0.12, 
+        width: WINDOW_WIDTH * 0.8, 
         justifyContent: 'center', 
         alignItems: 'center' 
     },
     ResetStyles: { 
-        ...ifIphoneX({ height: h * 0.06 }, { height: h * 0.075 }), width: w * 0.6, 
+        ...ifIphoneX({ height: WINDOW_HEIGHT * 0.06 }, { height: WINDOW_HEIGHT * 0.075 }), width: WINDOW_WIDTH * 0.6, 
         backgroundColor: 'white', 
         borderRadius: 40, 
         justifyContent: 'center', 
@@ -113,7 +113,7 @@ export default StyleSheet.create({
     },
     ResetText: { 
         color: '#f89e59', 
-        ...ifIphoneX({ fontSize: h * 0.020, }, 
-            { fontSize: h * 0.025 }) 
+        ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.020, }, 
+            { fontSize: WINDOW_HEIGHT * 0.025 }) 
         },
 });

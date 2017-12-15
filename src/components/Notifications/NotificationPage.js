@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View, Image, Dimensions, TouchableOpacity, TextInput, FlatList } from "react-native";
+import { Text, View, Image, Dimensions, TouchableOpacity, TextInput, FlatList, ActivityIndicator } from "react-native";
 import FloatingLabel from 'react-native-floating-labels';
 import { Actions } from 'react-native-router-flux';
-import ModalDropdown from 'react-native-modal-dropdown';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 const { height: h, width: w } = Dimensions.get('window');
 import { bindActionCreators } from 'redux';
-import { NotificationPage } from '../.././actions/listUserAction';
+import { NotificationPage, login } from '../.././actions/notificationAction';
 import { connect } from 'react-redux';
-import styles from '../../Styles/NotificationStyles';
+import styles from '../../styles/notificationStyles';
 import { ifIphoneX, isIphoneX } from 'react-native-iphone-x-helper';
 
 
@@ -28,20 +27,14 @@ class Notification extends Component {
         this.props.NotificationPage()
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.Reducers.notification_data) {
-            console.log(nextProps.Reducers.notification_data)
-        }
-    }
-
     render() {
-        if (this.props.Reducers.notification_data) {
-            const notificationData = this.props.Reducers.notification_data
+        if (this.props.NotificationReducers.notification_data) {
+            const notificationData = this.props.NotificationReducers.notification_data
             return (
                 <View style={styles.container}>
                     <View style={styles.header}>
                         <View style={styles.imageView}>
-                            <Image source={require('../../Image/notification.png')} style={styles.img} />
+                            <Image source={require('../../image/notification.png')} style={styles.img} />
                         </View>
                         <View style={styles.headerText}>
                             <Text style={styles.notification_text}>Notifications</Text>
@@ -63,7 +56,7 @@ class Notification extends Component {
                     {
                         this.state.event === true
                             ?
-                            <View style={[styles.tab, { flex: 1}]}>
+                            <View style={[styles.tab, { flex: 1 }]}>
                                 <View style={[styles.flatListView, { flex: 1 }]}>
                                     <FlatList
                                         data={notificationData.events}
@@ -77,15 +70,10 @@ class Notification extends Component {
                                                         <Text style={styles.textStyle}>{item.eventName}</Text>
                                                     </View>
                                                     <View style={styles.dateTimeView}>
-                                                        <View style={[{ flex: .35 }, styles.textView]}>
-                                                            <Text style={styles.textStyle}>{item.eventTime}</Text>
-                                                        </View>
-                                                        <View style={[{ flex: .65 }, styles.textView]}>
-                                                            <Text style={styles.textStyle}>{item.eventDate}</Text>
-                                                        </View>
+                                                        <Text style={styles.textStyle}>{item.eventTime}, {item.eventDate}</Text>
                                                     </View>
                                                     <View style={styles.eventDescriptionView}>
-                                                        <Text style={styles.fontView}> {item.eventDescription}</Text>
+                                                        <Text style={styles.fontView}>{item.eventDescription}</Text>
                                                     </View>
                                                 </View>
                                             </View>
@@ -93,29 +81,24 @@ class Notification extends Component {
                                 </View>
                             </View>
                             :
-                            <View style={[styles.tab, { flex: .76 }]}>
+                            <View style={[styles.tab, { flex: 1 }]}>
                                 <View style={[styles.flatListView, { flex: 0.85 }]}>
                                     <FlatList
                                         data={notificationData.donations}
                                         renderItem={({ item, key }) =>
-                                            <View style={styles.mainView}>
+                                            <View style={styles.mainViewdonation}>
                                                 <View style={styles.eventHeaderView}>
-                                                    <Image source={require('../../Image/logo.png')} style={styles.imagelogo} />
+                                                    <Image source={require('../../image/logo.png')} style={styles.imagelogo} />
                                                 </View>
                                                 <View style={styles.donations}>
-                                                    <View style={[   ...ifIphoneX({ flex: .25 }, { flex: .2 }), styles.textView]}>
+                                                    <View style={[...ifIphoneX({ flex: .25 }, { flex: .2 }), styles.textView]}>
                                                         <Text style={styles.textStyle}>{item.donationHeading}</Text>
                                                     </View>
                                                     <View style={styles.dateTimeView}>
-                                                        <View style={[{ flex: .35 }, styles.textView]}>
-                                                            <Text style={styles.textStyle}>{item.donationTime}</Text>
-                                                        </View>
-                                                        <View style={[{ flex: .65 }, styles.textView]}>
-                                                            <Text style={styles.textStyle}>{item.donationDate}</Text>
-                                                        </View>
+                                                        <Text style={styles.textStyle}>{item.donationTime}, {item.donationDate}</Text>
                                                     </View>
                                                     <View style={styles.donationView}>
-                                                        <Text style={styles.fontView}> {item.donationDescription}</Text>
+                                                        <Text style={styles.fontView}>{item.donationDescription}</Text>
                                                     </View>
                                                 </View>
 
@@ -133,11 +116,16 @@ class Notification extends Component {
                 </View>
             )
         }
+     return(
+            <View style={styles.activityindicator}>
+                <ActivityIndicator />
+                </View>
+        )
     }
 }
 const mapStateToProps = state => {
     return {
-        Reducers: state.Reducers,
+        NotificationReducers: state.NotificationReducers,
     };
 };
 const mapDispatchToProps = dispatch => {

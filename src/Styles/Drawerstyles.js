@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
 import { StyleSheet, Platform, Dimensions } from 'react-native';
-const { height: h, width: w } = Dimensions.get('window');
+const { height: WINDOW_HEIGHT, width: WINDOW_WIDTH } = Dimensions.get('window');
 
 export default StyleSheet.create({
     mainView: {
-        height: h * 0.96,
+        height: WINDOW_HEIGHT* 0.96,
         backgroundColor: 'white',
         alignItems: 'center'
       },
       main:{
-        flex:0.1
+        flex:0.07
       },
       wrap: {
-        flex: 0.07,
+        flex: 0.068,
         justifyContent: 'center'
       },
       container: {
         flex: 0.9,
-        width: w * 0.7,
+        width: WINDOW_WIDTH * 0.7,
         backgroundColor: 'white'
       },
       textstyle: {
         color: "#3a6d89",
-        fontSize: w * 0.055,
+        fontSize: WINDOW_WIDTH * 0.055,
         fontWeight: '500'
       },
       buttonview: {
-        flex: 0.15,
+        flex: 0.1,
         marginLeft:'4%'
       },
       logoutText: {
@@ -36,11 +36,11 @@ export default StyleSheet.create({
       logoutButtonView: {
         flex: 0.17,
         justifyContent: 'center',
-        width: w * 0.5
+        width: WINDOW_WIDTH * 0.5
       },
       logoutButton: {
         color: '#3a6d89',
-        fontSize: w * 0.055,
+        fontSize: WINDOW_WIDTH * 0.055,
         fontWeight: '400',
         textAlign: 'center',
         paddingVertical: '3%'

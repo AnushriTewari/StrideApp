@@ -14,6 +14,19 @@ const DashboardTeamCaption = {
     percentEvent: 45,
     eventDonorNo: 43,
    }
-    export default DashboardTeamCaption;
+
+
+  getDashboardData = () => {
+    return new Promise((resolve, reject) => {
+        if(DashboardTeamCaption){
+            resolve(DashboardTeamCaption);
+          } else {
+            reject("error");
+          };
+      });
+  }
+
+
+    export default getDashboardData;
   
   

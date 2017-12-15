@@ -1,100 +1,118 @@
 import React, { Component } from 'react';
 import { StyleSheet, Platform, Dimensions } from 'react-native';
-const { height: h, width: w } = Dimensions.get('window');
+const { height: WINDOW_HEIGHT, width: WINDOW_WIDTH } = Dimensions.get('window');
 import { ifIphoneX, isIphoneX } from 'react-native-iphone-x-helper'
 
 
 export default StyleSheet.create({
-   main:{ 
-       flex: 1 ,
-       backgroundColor:'white'
+    main: {
+        flex: 1,
+        backgroundColor: 'white'
     },
-   headerview:{ 
-       flex: .07, 
-       backgroundColor: '#f89e59', 
-       flexDirection: 'row' 
+    headerview: {
+        flex: .07,
+        backgroundColor: '#f89e59',
+        flexDirection: 'row'
     },
-   imageview:{ 
-       flex: .35, 
-       justifyContent: 'center', 
-       alignItems: 'flex-end' 
+    imageview: {
+        flex: .35,
+        justifyContent: 'center',
+        alignItems: 'flex-end',
     },
-   image:{ 
-       ...ifIphoneX({ height: h * 0.030}, { height: h * 0.034 }), 
-        ...ifIphoneX({ width: w * .052}, {  width: w * .052 }) 
+    buttonStyle: {
+        height: 20,
+        width: 20,
+        backgroundColor: "transparent"
     },
-   titleview:{ 
-       flex: .65, 
-       justifyContent: 'center', 
-       paddingLeft: '4%' 
+    leftButtonView: {
+        backgroundColor: 'white',
+        width: WINDOW_WIDTH * 0.09,
+        height: WINDOW_WIDTH * 0.15,
+        justifyContent: 'center',
+        alignItems: 'flex-end'
     },
-   texthead:{
-       color: 'white', 
-       fontSize: h * 0.03, 
-       fontWeight: '500'
+    image: {
+        ...ifIphoneX({  height: WINDOW_HEIGHT * 0.03, }, {   height: WINDOW_HEIGHT * 0.0345, }),
+        ...ifIphoneX({ width: WINDOW_WIDTH * .054 }, { width: WINDOW_WIDTH * .056 }),
+     
     },
-   body:{ 
-       flex: .8, 
-       width: w 
+    titleview: {
+        flex: .65,
+        justifyContent: 'center',
+        paddingLeft: '4%'
     },
-   flatlist:{ 
-       flex: .8, 
-       justifyContent: 'center', 
-       marginTop: '10%'
+    texthead: {
+        color: 'white',
+        fontSize: WINDOW_HEIGHT * 0.03,
+        fontWeight: '500'
     },
-   listview:{ 
-       height: h * .03, 
-       width: w , 
-       flexDirection: 'row' 
+    body: {
+        flex: .8,
+        width: WINDOW_WIDTH
     },
-   name:{ 
-       flex: .4, 
-       alignItems: 'flex-start', 
-       justifyContent: 'center', 
-       marginLeft: '12%' 
+    flatlist: {
+        flex: .8,
+        justifyContent: 'center',
+        marginTop: '10%'
     },
-   amount:{ 
-       flex: .2, 
-       justifyContent: 'center', 
-       alignItems: 'center',
-       marginLeft: '10%' 
+    listview: {
+        height: WINDOW_HEIGHT * .03,
+        width: WINDOW_WIDTH,
+        flexDirection: 'row'
     },
-   date:{ 
-       flex: .35, 
-       justifyContent: 'center', 
-       alignItems: 'flex-start', 
-       marginLeft: "15%" 
+    name: {
+        flex: .4,
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        marginLeft: '12%'
     },
-   nametext:{ 
-       color: '#2f6884', 
-       ...ifIphoneX({ fontSize: h * 0.016 }, { fontSize: h * 0.018, }), 
-       fontWeight: '500' 
+    amount: {
+        flex: .2,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: '10%'
     },
-    bottomview:{ 
-        flex: 0.05 
+    date: {
+        flex: .35,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        marginLeft: "15%"
     },
-    amountcollected:{ 
-        flex: .15, 
-        width: w * .7, 
-        alignSelf: 'center' 
+    nametext: {
+        color: '#2f6884',
+        ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.0145 }, { fontSize: WINDOW_HEIGHT * 0.018, }),
+        fontWeight: '500'
     },
-    donornumberview:{ 
-        flex: .6, 
-        alignItems: 'center', 
-        paddingTop: '3%', 
-        justifyContent: 'flex-start' 
+    activityindicator:{ 
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '50%' 
+      },
+    bottomview: {
+        flex: 0.05
     },
-    numberdonor:{ 
-        ...ifIphoneX({ fontSize: h * 0.020 }, { fontSize: h * 0.022, }), 
-        color: 'grey' 
+    amountcollected: {
+        flex: .15,
+        width: WINDOW_WIDTH * .7,
+        alignSelf: 'center'
     },
-    viewdiv:{ 
-        flex: .45, 
-        alignItems: 'center' 
+    donornumberview: {
+        flex: .6,
+        alignItems: 'center',
+        paddingTop: '3%',
+        justifyContent: 'flex-start'
     },
-    statics:{ 
-        color: '#f89e59', 
-        ...ifIphoneX({ fontSize: h * 0.022 }, { fontSize: h * 0.025, }) 
+    numberdonor: {
+        ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.020 }, { fontSize:WINDOW_HEIGHT * 0.022, }),
+        color: 'grey'
+    },
+    viewdiv: {
+        flex: .45,
+        alignItems: 'center'
+    },
+    statics: {
+        color: '#f89e59',
+        ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.022 }, { fontSize: WINDOW_HEIGHT * 0.025, })
     },
 
 })

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Platform, Dimensions } from 'react-native';
-const { height: h, width: w } = Dimensions.get('window');
+const { height: WINDOW_HEIGHT, width: WINDOW_WIDTH } = Dimensions.get('window');
 
 export default StyleSheet.create({
   main: {
@@ -32,8 +32,8 @@ export default StyleSheet.create({
          paddingBottom: "5%" 
         },
       introimagestyle:{ 
-        width: w * 0.3, 
-        height: w * 0.3 
+        width: WINDOW_WIDTH * 0.3, 
+        height: WINDOW_WIDTH * 0.3 
       },
       introtextContent:{ 
         flex: 0.4, 
@@ -42,7 +42,7 @@ export default StyleSheet.create({
       },
       introtextSkip:{ 
         textAlign: 'center', 
-        fontSize: w * 0.045, 
+        fontSize: WINDOW_WIDTH * 0.045, 
         color: "#d38b3f" 
       },
       introbuttonView: {
@@ -50,11 +50,11 @@ export default StyleSheet.create({
       },
       introbuttontext:{ 
           color: 'white', 
-          fontSize: w * 0.05 
+          fontSize: WINDOW_WIDTH * 0.05 
         },
       introtextStyle: {
         color: '#426387',
-        fontSize: w * 0.05,
+        fontSize: WINDOW_WIDTH * 0.05,
         fontWeight: "400"
       },
       intronextclick:{ 

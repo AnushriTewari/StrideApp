@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Platform, Dimensions } from 'react-native';
-const { height: h, width: w } = Dimensions.get('window');
+const { height: WINDOW_HEIGHT, width: WINDOW_WIDTH } = Dimensions.get('window');
 
 export default StyleSheet.create({
     main: {
@@ -21,9 +21,14 @@ export default StyleSheet.create({
         justifyContent: 'center',
         paddingLeft: '2%'
     },
+    activityindicator:{ 
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '50%' 
+      },
     text: {
         color: 'white',
-        fontSize: h * 0.03,
+        fontSize: WINDOW_HEIGHT * 0.03,
         fontWeight: '500'
     },
     progressview: {
@@ -32,20 +37,20 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     percent: {
-        fontSize: w * 0.042,
+        fontSize: WINDOW_WIDTH * 0.042,
         color: '#f89e59',
         fontWeight: '500'
     },
     stats: {
         color: "#f89e59",
-        fontSize: w * 0.036,
+        fontSize: WINDOW_WIDTH * 0.036,
         fontWeight: '400',
         textAlign: 'center',
         paddingTop: '4%'
     },
     donornum: {
         color: "#38383a",
-        fontSize: w * 0.033,
+        fontSize: WINDOW_WIDTH * 0.033,
         fontWeight: '400',
         textAlign: 'center',
         paddingTop: '2%',
@@ -57,7 +62,7 @@ export default StyleSheet.create({
     },
     listing: {
         flex: 1,
-        height: h * 0.1,
+        height: WINDOW_HEIGHT * 0.1,
         flexDirection: 'column',
         paddingVertical: '2%',
         alignItems: "center"
@@ -72,17 +77,29 @@ export default StyleSheet.create({
         backgroundColor: 'white'
     },
     textlist: {
-        height: h * 0.04,
-        width: w * 0.4,
+        height: WINDOW_HEIGHT * 0.04,
+        width: WINDOW_WIDTH * 0.4,
         backgroundColor: '#f5f5f5'
     },
     titleview: {
         flex: 0.06,
         backgroundColor: 'white'
     },
+    buttonStyle: {
+        height: 20,
+        width: 20,
+        backgroundColor: "transparent"
+    },
+    leftButtonView: {
+        backgroundColor: 'white',
+        width: WINDOW_WIDTH * 0.09,
+        height: WINDOW_WIDTH * 0.15,
+        justifyContent: 'center',
+        alignItems: 'flex-end'
+    },
     teamtitle: {
         color: "#3a6d89",
-        fontSize: w * 0.053,
+        fontSize: WINDOW_WIDTH * 0.053,
         fontWeight: '400',
         textAlign: 'center'
     },
@@ -99,9 +116,9 @@ export default StyleSheet.create({
         justifyContent: 'center'
     },
     swipertext: {
-        fontSize: h * 0.1,
+        fontSize: WINDOW_HEIGHT * 0.1,
         color: "#dcdcdc",
-        paddingBottom: '19%'
+        paddingBottom: '45%'
     },
     dot: {
         borderWidth: 1,

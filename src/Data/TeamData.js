@@ -1,5 +1,5 @@
-const Teamdata = {
-    
+const teamData = {
+
     teamName: 'Team Malone',
     percent: 25,
     goal: '$5,000',
@@ -106,8 +106,19 @@ const Teamdata = {
 
         },
     ]
-     
-   }
-    export default Teamdata;
-  
-  
+
+}
+
+getTeamData = () => {
+    return new Promise((resolve, reject) => {
+        if (teamData) {
+            resolve(teamData);
+        }
+        else {
+            reject(error);
+        }
+    })
+}
+
+export default getTeamData;
+

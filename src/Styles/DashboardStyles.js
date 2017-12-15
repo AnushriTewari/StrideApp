@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Platform, Dimensions } from 'react-native';
-const { height: h, width: w } = Dimensions.get('window');
+const { height: WINDOW_HEIGHT, width: WINDOW_WIDTH } = Dimensions.get('window');
 
 export default StyleSheet.create({
    dashboardmain: { 
@@ -23,24 +23,28 @@ export default StyleSheet.create({
         flex: 0.5, 
         backgroundColor:'white' 
     },
+    dashboardcontainerec:{ 
+        flex: 0.6, 
+        backgroundColor:'white' 
+    },
     dashboardtext:{ 
         color: 'white', 
         textAlign: 'center', 
         fontWeight: '500' 
     },
     percent:{ 
-        fontSize: w * 0.042, 
+        fontSize: WINDOW_WIDTH * 0.042, 
         fontWeight: '500',
         color: '#f89e59' 
     },
     eventname:{ 
         color: "#2f658c", 
-        fontSize: w * 0.058, 
+        fontSize: WINDOW_WIDTH * 0.058, 
         fontWeight: '400', 
         textAlign: 'center'
     },
     swipertext:{ 
-        fontSize: h * 0.1, 
+        fontSize: WINDOW_HEIGHT * 0.1, 
         color:"#dcdcdc" ,
         paddingBottom:'10%'
     },
@@ -51,20 +55,23 @@ export default StyleSheet.create({
      },
     stats:{ 
         color: "#f89e59", 
-        fontSize: w * 0.036, 
+        fontSize: WINDOW_WIDTH * 0.036, 
         fontWeight:'400', 
         textAlign:'center', 
         paddingTop:'4%'
     },
     donornum:{ 
         color: "#38383a", 
-        fontSize: w * 0.033, 
+        fontSize: WINDOW_WIDTH * 0.033, 
         fontWeight: '400', 
         textAlign: 'center', 
         paddingTop: '1%' 
     },
     boardcontainer:{
         flex:0.5
+    },
+    boardcontainerec:{
+        flex:0.4
     },
     dashboardlink:{ 
         flex: 0.5, 
@@ -76,17 +83,22 @@ export default StyleSheet.create({
         alignItems: 'center', 
         paddingBottom: '5%' 
     },
+    activityindicator:{ 
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '50%' 
+      },
     boardview:{ 
         flex: 0.4, 
         alignItems: 'center' 
     },
     dashboardimg:{
-        width: w * 0.07,
-        height: w * 0.07 
+        width: WINDOW_WIDTH * 0.07,
+        height: WINDOW_WIDTH * 0.07 
     },
     notificationimg:{ 
-        width: w * 0.05, 
-        height: w * 0.05 
+        width: WINDOW_WIDTH * 0.05, 
+        height: WINDOW_WIDTH * 0.05 
     },
     notification:{ 
         flex: 0.5, 

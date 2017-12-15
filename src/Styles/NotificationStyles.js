@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Platform, Dimensions } from 'react-native';
-const { height: h, width: w } = Dimensions.get('window');
+const { height: WINDOW_HEIGHT, width: WINDOW_WIDTH } = Dimensions.get('window');
 import { ifIphoneX, isIphoneX } from 'react-native-iphone-x-helper';
 
 export default StyleSheet.create({
@@ -19,49 +19,72 @@ export default StyleSheet.create({
         alignItems: 'flex-end'
     },
     img: {
-        ...ifIphoneX({ fontSize: h * 0.031 }, { fontSize: h * .035 }),
-        ...ifIphoneX({ width: w * .040 }, { width: w * .044 }), 
+        ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.0307 }, { fontSize: WINDOW_HEIGHT * .0347 }),
+        ...ifIphoneX({ width: WINDOW_WIDTH * .040 }, { width: WINDOW_WIDTH * .044 }), 
     },
     headerText: {
-
         flex: .65,
         justifyContent: 'center',
         paddingLeft: '4%'
     },
     notification_text: {
         color: 'white',
-        ...ifIphoneX({ fontSize: h * 0.026 }, { fontSize: h * 0.03 }),
+        ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.026 }, { fontSize: WINDOW_HEIGHT * 0.03 }),
         fontWeight: '500'
     },
     tabView: {
-        ...ifIphoneX({ flex: .07 }, { flex: .1 }),
+        ...ifIphoneX({ flex: .07 }, { flex: (Platform.OS === 'ios') ? .08 :.1 }),
         backgroundColor: 'white',
         flexDirection: 'row'
     },
+    activityindicator:{ 
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '50%' 
+      },
     tab: {
         alignItems: 'center',
         justifyContent: 'center',
 
     },
+    buttonStyle: {
+        height: 20,
+        width: 20,
+        backgroundColor: "transparent"
+    },
+    leftButtonView: {
+        backgroundColor: 'white',
+        width: WINDOW_WIDTH * 0.09,
+        height: WINDOW_WIDTH * 0.15,
+        justifyContent: 'center',
+        alignItems: 'flex-end'
+    },
     tabText: {
-        ...ifIphoneX({ fontSize: h * 0.023 }, { fontSize: h * .027 }),
+        ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.023 }, { fontSize: WINDOW_HEIGHT * .027 }),
         ...ifIphoneX({ marginTop: '5%' }),
     },
     bar: {
-        ...ifIphoneX({ fontSize: h * 0.046 }, { fontSize: h * .05, }),
+        ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.046 }, { fontSize: WINDOW_HEIGHT * .05, }),
         color: '#44859e'
     },
     space: {
-        ...ifIphoneX({ flex: .02 }, { flex: .05, }),
+        ...ifIphoneX({ flex: .02 }, { flex: (Platform.OS === 'ios') ? 0.02 :.05, }),
+        backgroundColor:'white'
     },
     flatListView: {
         backgroundColor: 'white',
-        width: w * .97,
+        width: WINDOW_WIDTH * .97,
         shadowOffset: { width: 2 },
         shadowOpacity: 0.2,
     },
     mainView: {
-        height: h * .16,
+        height: WINDOW_HEIGHT * .16,
+        borderRadius: 10,
+        backgroundColor: "white",
+        flexDirection: 'row'
+    },
+    mainViewdonation: {
+        height: WINDOW_HEIGHT * .13,
         borderRadius: 10,
         backgroundColor: "white",
         flexDirection: 'row'
@@ -69,12 +92,12 @@ export default StyleSheet.create({
     eventHeaderView: {
         flex: .3,
         backgroundColor:"white",
-        paddingTop: '10%',
-        ...ifIphoneX({ paddingLeft: '2%' }, { paddingHorizontal: '5%' }),
+        paddingTop: '6%',
+        ...ifIphoneX({ paddingLeft: '2%' }, { paddingHorizontal: '3%' }),
  
     },
     textStyle: {
-        ...ifIphoneX({ fontSize: h * .016 }, { fontSize: h * .02 }),
+        ...ifIphoneX({ fontSize: WINDOW_HEIGHT * .016}, { fontSize: (Platform.OS === 'ios') ? WINDOW_HEIGHT * 0.019 : WINDOW_HEIGHT * .02 }),
         color: '#6990c0',
         fontWeight: 'bold'
     },
@@ -82,12 +105,12 @@ export default StyleSheet.create({
         alignItems: 'flex-start'
     },
     fontView: {
-        ...ifIphoneX({ fontSize: h * .016 }, { fontSize: h * .018 }),
+        ...ifIphoneX({ fontSize: WINDOW_HEIGHT * .0147 }, { fontSize:(Platform.OS === 'ios') ? WINDOW_HEIGHT * 0.017 : WINDOW_HEIGHT * .019 }),
     },
     dateTimeView: {
         flex: .25,
         alignItems: 'flex-start',
-        flexDirection: 'row'
+       justifyContent:'center'
     },
     events:{
         flex: .7,
@@ -98,7 +121,7 @@ export default StyleSheet.create({
         justifyContent: 'center'
     },
     donationView: {
-        ...ifIphoneX({  flex: .50, }, {  flex: .55,}),
+        ...ifIphoneX({  flex: .5, }, {  flex: .55,}),
         paddingRight: '3%'
     },
     eventDescriptionView: {
@@ -106,23 +129,23 @@ export default StyleSheet.create({
         paddingRight: '2%'
     },
     imagelogo: {
-        ...ifIphoneX({ height: h * 0.023, }, { height: h * 0.025, }),
-        ...ifIphoneX({ width: w * 0.20 }, { width: w * 0.19 }),
+        ...ifIphoneX({ height: WINDOW_HEIGHT * 0.023, }, { height: WINDOW_HEIGHT * 0.025, }),
+        ...ifIphoneX({ width: WINDOW_WIDTH * 0.20 }, { width: WINDOW_WIDTH * 0.19 }),
     },
     newUpdateButtonView: {
         flex: .15,
         justifyContent: 'center'
     },
     onPressNewUpdate: {
-        height: h * 0.07,
-        width: w * 0.59,
+        height: WINDOW_HEIGHT * 0.07,
+        width: WINDOW_WIDTH * 0.59,
         backgroundColor: '#f89e59',
         justifyContent: 'center',
         alignItems: 'center'
     },
     newUpdateStyles: {
         color: 'white',
-        ...ifIphoneX({ fontSize: h * 0.023 }, { fontSize: h * 0.027 }),
+        ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.023 }, { fontSize: WINDOW_HEIGHT * 0.027 }),
         fontWeight: '500'
     }
 })

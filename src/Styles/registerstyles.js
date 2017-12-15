@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, Platform, Dimensions } from 'react-native';
-const { height: h, width: w } = Dimensions.get('window');
+const { height: WINDOW_HEIGHT, width: WINDOW_WIDTH } = Dimensions.get('window');
 import { ifIphoneX, isIphoneX } from 'react-native-iphone-x-helper';
 
 export default StyleSheet.create({
     container1: {
 
-        height: (Platform.OS === 'ios') ? h : h * 0.965,
+        height: (Platform.OS === 'ios') ? WINDOW_HEIGHT : WINDOW_HEIGHT * 0.965,
 
     },
     main: {
@@ -24,48 +24,48 @@ export default StyleSheet.create({
             })
     },
     textinput: {
-        height: h * 0.07,
-        width: w * 0.8,
+        height: WINDOW_HEIGHT * 0.07,
+        width: WINDOW_WIDTH * 0.8,
         justifyContent: 'center',
         borderBottomWidth: 1,
         borderColor: 'white'
     },
 
     img: {
-        height: h * 0.77,
-        width: w * 1,
+        height: WINDOW_HEIGHT * 0.77,
+        width: WINDOW_WIDTH * 1,
         alignItems: 'center'
     },
     nexttext: {
-        height: h * 0.07,
+        height: WINDOW_HEIGHT * 0.07,
         justifyContent: 'center',
-        width: w * 0.85
+        width: WINDOW_WIDTH * 0.85
     },
     checkbox: {
-        height: h * 0.05,
-        width: w * 0.8,
+        height: WINDOW_HEIGHT * 0.05,
+        width: WINDOW_WIDTH * 0.8,
         alignItems: 'center',
         marginTop: '2%',
         flexDirection: 'row'
     },
     dropdown: {
-        height: h * 0.07,
-        width: w * 0.8,
+        height: WINDOW_HEIGHT * 0.07,
+        width: WINDOW_WIDTH * 0.8,
         justifyContent: 'flex-end'
     },
     signview: {
-        height: h * 0.1,
-        width: w * 0.8,
+        height: WINDOW_HEIGHT * 0.1,
+        width: WINDOW_WIDTH * 0.8,
         justifyContent: 'center',
         alignItems: 'center'
     },
     signtext: {
         ...ifIphoneX({
-            height: h * 0.06,
+            height: WINDOW_HEIGHT * 0.06,
         }, {
-                height: h * 0.07,
+                height: WINDOW_HEIGHT * 0.07,
             }),
-        width: w * 0.6,
+        width: WINDOW_WIDTH * 0.6,
         backgroundColor: 'white',
         borderRadius: 40,
         justifyContent: 'center',
@@ -80,47 +80,47 @@ export default StyleSheet.create({
     signup: {
         color: '#f89e59',
         ...ifIphoneX({
-            fontSize: h * 0.020,
+            fontSize: WINDOW_HEIGHT * 0.020,
         }, {
-                fontSize: h * 0.025
+                fontSize: WINDOW_HEIGHT * 0.025
             })
     },
     accexists: {
         color: 'steelblue',
-        fontSize: w * 0.034
+        fontSize: WINDOW_WIDTH * 0.034
     },
     textfront: {
         color: 'white',
         ...ifIphoneX({
-            fontSize: h * 0.027,
+            fontSize: WINDOW_HEIGHT * 0.027,
         }, {
-                fontSize: h * 0.03,
+                fontSize: WINDOW_HEIGHT * 0.03,
             }),
         backgroundColor: 'transparent',
         textAlign: 'center'
     },
     registerview: {
-        height: h * 0.65,
-        width: w * 0.85,
+        height: WINDOW_HEIGHT * 0.65,
+        width: WINDOW_WIDTH * 0.85,
         backgroundColor: 'rgba(0, 0, 0, 0.2)',
         alignItems: 'center'
     },
     regview: {
         alignItems: 'flex-end',
-        width: w * 0.7,
+        width: WINDOW_WIDTH * 0.7,
         justifyContent: 'flex-start'
     },
     regtext: {
         color: 'white',
-        fontSize: h * 0.02
+        fontSize: WINDOW_HEIGHT * 0.02
     },
 
     textInputtext: {
         color: '#f89e59',
-        height: h * 0.06
+        height: WINDOW_HEIGHT * 0.06
     },
     textnext: {
         color: '#f89e59',
-        height: h * 0.07
+        height: WINDOW_HEIGHT * 0.07
     }
 });

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Platform, Dimensions } from 'react-native';
 import { ifIphoneX, isIphoneX } from 'react-native-iphone-x-helper';
-const { height: h, width: w } = Dimensions.get('window');
+const { height: WINDOW_HEIGHT, width: WINDOW_WIDTH } = Dimensions.get('window');
 
 export default StyleSheet.create({
   main: {
@@ -9,7 +9,7 @@ export default StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    flex: .1,
+    flex: .09,
     backgroundColor: '#53a5b9',
     flexDirection: 'row'
   },
@@ -19,8 +19,8 @@ export default StyleSheet.create({
     alignItems: 'flex-end'
   },
   img: {
-    height: h * 0.042,
-    width: w * .061
+    ...ifIphoneX({ height: WINDOW_HEIGHT * 0.034 }, { height: WINDOW_HEIGHT * 0.042 }),
+    ...ifIphoneX({ width: WINDOW_WIDTH * .061 }, { width: WINDOW_WIDTH * .061 }),
   },
   textview: {
     flex: .65,
@@ -29,7 +29,7 @@ export default StyleSheet.create({
   },
   texthead: {
     color: 'white',
-    ...ifIphoneX({ fontSize: h * 0.026 }, { fontSize: h * 0.03 }),
+    ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.026 }, { fontSize: WINDOW_HEIGHT * 0.03 }),
     fontWeight: '500'
   },
   scrolltab: {
@@ -41,10 +41,14 @@ export default StyleSheet.create({
     backgroundColor: 'transparent'
   },
   tabbartext: {
-    ...ifIphoneX({ fontSize: h * 0.021 }, { fontSize: h * 0.025 })
+    ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.021 }, { fontSize: WINDOW_HEIGHT * 0.025 })
   },
   left: {
-    flex: 0.13
+    flex: 0.13,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white'
   },
   eventGoalmain: {
     flex: 1,
@@ -60,7 +64,7 @@ export default StyleSheet.create({
   },
   textheader: {
     color: '#3a6d89',
-    ...ifIphoneX({ fontSize: h * 0.034 }, { fontSize: h * 0.036, }),
+    ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.034 }, { fontSize: WINDOW_HEIGHT * 0.036, }),
     fontWeight: '400'
   },
   progressView: {
@@ -71,7 +75,7 @@ export default StyleSheet.create({
     marginTop: '2%'
   },
   percent: {
-    ...ifIphoneX({ fontSize: h * 0.039 }, { fontSize: h * 0.039, }),
+    ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.039 }, { fontSize: WINDOW_HEIGHT * 0.039, }),
     fontWeight: '500',
     color: '#777777'
   },
@@ -88,70 +92,86 @@ export default StyleSheet.create({
     flex: .45,
     alignItems: 'center'
   },
-  activityIndicatorView: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   divview: {
     flex: .05,
     alignItems: 'center'
   },
   textstats: {
-    ...ifIphoneX({ fontSize: h * 0.026 }, { fontSize: h * 0.03, }),
+    ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.026 }, { fontSize: WINDOW_HEIGHT * 0.03, }),
     color: '#f89e59'
   },
   donationview: {
     flex: .6
   },
   textdonor: {
-    ...ifIphoneX({ fontSize: h * 0.02 }, { fontSize: h * 0.025, }),
+    ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.02 }, { fontSize: WINDOW_HEIGHT * 0.025, }),
     color: 'grey'
   },
-  leaderboardmain: { 
-    flex: 1, 
-    backgroundColor: 'white', 
-    justifyContent: 'center', 
-    alignItems: 'center' 
+  leaderboardmain: {
+    flex: 1,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 3,
+    shadowOffset: { width: 2 },
+    shadowOpacity: 0.2,
   },
-  container: { 
-    flex: .8, 
-    width: w, 
-    shadowOffset: { width: 2 }, 
-    shadowOpacity: 0.2 
+  container: {
+    flex: (Platform.OS === 'iOS') ? 0.9 : 0.8,
+    width: WINDOW_WIDTH,
+
   },
-  title: { 
-    flex: .2, 
-    backgroundColor: 'white', 
-    justifyContent: 'center', 
-    alignItems: 'center' 
+  title: {
+    flex: .2,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  leaderboardtext: { 
-    color: '#2f6884', 
-    ...ifIphoneX({ fontSize: h * 0.03 }, { fontSize: h * 0.034 }), 
-    fontWeight: '400' 
+  leaderboardtext: {
+    color: '#2f6884',
+    ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.03 }, { fontSize: WINDOW_HEIGHT * 0.034 }),
+    fontWeight: '400'
   },
-  leaderboardlist: { 
-    flex: .8, 
-    backgroundColor: 'white', 
-    justifyContent: 'center', 
-    alignItems: 'center' 
+  buttonStyleTitle: {
+    height: 20,
+    width: 20,
+    backgroundColor: "transparent"
   },
-  listview: { 
-    height: h * .03, 
-    width: w,
-    borderRadius: 10, 
-    flexDirection: 'row' 
+  leftButtonView: {
+    backgroundColor: 'white',
+    width: WINDOW_WIDTH * 0.09,
+    height: WINDOW_WIDTH * 0.15,
+    justifyContent: 'center',
+    alignItems: 'flex-end'
   },
-  cost: { 
-    flex: .4, 
-    alignItems: 'flex-start' 
+  leaderboardlist: {
+    flex: .8,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  listview: {
+    height: WINDOW_HEIGHT * .03,
+    width: WINDOW_WIDTH,
+    borderRadius: 10,
+    flexDirection: 'row'
+  },
+  cost: {
+    flex: .4,
+    alignItems: 'flex-start'
+  },
+  activityindicator:{ 
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '50%' 
   },
   textname: {
-     ...ifIphoneX({ fontSize: h * 0.019 }, 
-      { fontSize: h * 0.022 }), 
-      fontWeight: '500' 
-    },
-  space: { 
-    flex: .2 
+    ...ifIphoneX({ fontSize: WINDOW_HEIGHT * 0.019 },
+      { fontSize: WINDOW_HEIGHT * 0.022 }),
+    fontWeight: '500'
+  },
+  space: {
+    flex: (Platform.OS === 'iOS') ? .1 : .2
   },
 })
+
